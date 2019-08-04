@@ -4,7 +4,7 @@
 
 [Pseudocode](https://docs.google.com/document/d/1Ku6Jkig082Kg6_7inmCMrF0HbpAc5bLj6ZyyzCZC2oA/edit)
 
-# Black Jack how to play
+# BlackJack how to play
 Welcome, BlackJack is also known as twenty-one. 
 This is one of my favorite game when going to a casino. 
 Plus it's a very easy game to learn. 
