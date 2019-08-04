@@ -1,10 +1,6 @@
 # BlackJack
 
-[WireFrame](https://www.lucidchart.com/documents/edit/f437bae5-2ef6-428f-b8d7-6423be2c5d3d/0)
-
-[Pseudocode](https://docs.google.com/document/d/1Ku6Jkig082Kg6_7inmCMrF0HbpAc5bLj6ZyyzCZC2oA/edit)
-
-# BlackJack how to play
+# How to play
 Welcome, BlackJack is also known as twenty-one. 
 This is one of my favorite game when going to a casino. 
 Plus it's a very easy game to learn. 
