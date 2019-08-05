@@ -1,12 +1,13 @@
 /*----- constants -----*/ 
 let deck = new Array();
-let suits = ["spades", "diamonds", "clubs", "hearts"];
-let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "k"];
+let suits = ['s', 'c', 'd', 'h' ];
+let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'k', 'A'];
 
 //let masterDeck, not sure if i will need this yet? 
+let 
 
 /*----- app's state (variables) -----*/ 
-let scores, result, winner
+let score, result, winner
 let shuffleDeck
 
 /*----- cached element references -----*/ 
@@ -19,13 +20,13 @@ let result
 
 /*----- event listeners -----*/ 
 // button , click, 
-
+document.getElementById("btn").addEventListener('click', function(startblackjack));
 
 /*----- functions -----*/
 // render, shuffle, new deck, players
+init();
 
-
-function createDeck() { //creating a deck for 52 card
+function getDeck() { //creating a deck for 52 card
     let deck = new Array(); { 
       for (let i = 0; i < suit.length; i++); { //pulling suit
         for (let x = 0; x < values.length; x++); //pulling card value
@@ -45,6 +46,30 @@ function shuffle() { //if I have 52 card will this be enought of a shuffle?
     }
 }
   
+let count = 0; //counting cards
+function countCards(cards) {
+    switch(card){
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            count ++;
+            break;
+        case 10:
+        case 'J':
+        case 'Q':
+        case 'K':
+        case 'A':
+            count --;
+            Break:;
+    }
+    let holdBet = 'Hold'
+        if(count > 0) {
+            holdbet = 'Bet'
+        }
+}
+
 function createPlayer1() 
 
 function crearePlayer2()
