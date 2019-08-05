@@ -10,24 +10,25 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
+    <div class="game">
         <!-- row need to merg column-->
         <header>BlackJack</header>
         <!-- row & column -->
         <h3>Player1</h3>
         <h3>Draw</h3>
         <h3>dealer</h3>
-        <!-- row & column -->
-        <h1 id="p-score"></h1>
+        <!-- row & column not sure if I need a class for dealer and player?-->
+        <h1 id="p-score"></h1>   
         <h1 id="dr-score"></h1>
         <h1 id="dl-score"></h1>
         <!-- row & column -->
         <div id="p-result"></div>
         <div id="dl-result"></div>
         <!-- row & column -->
-        <button type="button" onclick="hit">HIT</button>
-        <button type="button" onclick="stay">STAY</button>
+        <input type="button" class="btn" value="start" onclick="start()" />
+        <input type="button" class="btn" value="Stay" onclick="start()" />
+        <input type="button" class="btn" value="Hit" onclick="start()" />
         <!-- 5 rows 3 columns -->
-    </main>
+    </div>
 </body>
 </html>
