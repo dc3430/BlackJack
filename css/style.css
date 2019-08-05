@@ -1,6 +1,6 @@
 /* remember to use "display flex" for the grid layout 
 go to class resources to pull the card images
-set up basic css */
+set up basic css,  */
 
 * {
     font-family: 'Playfair Display', serif;
@@ -8,18 +8,43 @@ set up basic css */
 }
 /* the page */
 body {
-
+    height: 125vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: green;/*later change this to an img*/
+}
+/* the grid layout for the board*/
+div {
+    display: grid;
+    grid-template-columns: 40vmin 30vmin 40vmin;
+    grid-template-rows: 10vmin 10vmin 10vmin 10vmin
 }
 /* just header */
 header {
-
+    background-color:black;
+    font-size:30px;
+    text-align: center;
+    color: white;
+    grid-column: span 3;
+    margin: 2vmin;
 }
-/* the grid table color*/
-.game {
-
+h3 {
+    color: white;
+    text-align: center;
+    padding: 1vmin;
+    margin: 1vmin;
 }
+
 /* style the button 
 add radius, backgorundcColor, */
 .btn {
-
+    font-size: 3vmin;
+    text-align: center;
+    border-radius: 50%;
+    padding: 2vmin;
+    margin: 2vmin;
+    
 }
+
