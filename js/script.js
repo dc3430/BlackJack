@@ -18,17 +18,19 @@ let result
 
 
 /*----- event listeners -----*/ 
-// button , click, render shuffle deck
+// button , click, 
 
 
 /*----- functions -----*/
-// render shuffle, render deck, build master deck
-function getDeck() { //creating a deck for 52 card
+// render, shuffle, new deck, players
+
+
+function createDeck() { //creating a deck for 52 card
     let deck = new Array(); { 
       for (let i = 0; i < suit.length; i++); { //pulling suit
         for (let x = 0; x < values.length; x++); //pulling card value
           let card = {Values: values[x], Suite: suits[i]}; 
-      } 
+      } // need to add weight to cards?
     }
     return deck;
 }
@@ -42,3 +44,19 @@ function shuffle() { //if I have 52 card will this be enought of a shuffle?
       deck[loc2] = con; // take location 2 and put it back in the container
     }
 }
+  
+function createPlayer1() 
+
+function crearePlayer2()
+
+function startblackjack()
+
+function dealHands()
+
+function stay()
+
+function hit()
+
+function winner()
+
+function renderDeck() 
