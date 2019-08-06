@@ -4,30 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=3.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Black Jack</title>
+    <title>BlackJack</title>
+    <link rel = "stylesheet" href = "css/cardstarter.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game">
-        <!-- row need to merg column-->
+    <div class="gameBoard">
         <header>BlackJack</header>
-        <!-- row & column -->
         <h3>Player1</h3>
-        <h3>Draw</h3>
+        
         <h3>Player2</h3>
-        <!-- row & column not sure if I need a class for dealer and player?-->
-        <h1 id="p1-score"></h1>   
-        <h1 id="dr-score"></h1>
-        <h1 id="p2-score"></h1>
-        <!-- row & column -->
-        <div id="p1-result"></div>
-        <div id="p2-result"></div>
-        <!-- row & column -->
-        <input type="button" class="btn" value="start" onclick="start()" />
-        <input type="button" class="btn" value="Stay" onclick="start()" />
-        <input type="button" class="btn" value="Hit" onclick="start()" />
+        <h1 id="p1-score">1</h1>  
+        
+        <h1 id="p2-score">2</h1>
+        <div id="p1-result"><img src="./images/backs/blue.svg" alt="back"></div>
+        
+        <div id="p2-result"><img src="./images/backs/red.svg" alt="back"></div>
+        <button class="btn" value="start" onclick="start()"></button>
+        <button class="btn" value="Hit" onclick="start()"></button>
+        <button class="btn" value="Stay" onclick="start()"></button>
         <!-- 5 rows 3 columns -->
     </div>
 </body>
