@@ -1,87 +1,122 @@
 /*----- constants -----*/ 
 let deck = new Array();
 let suits = ['s', 'c', 'd', 'h' ];
-let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'k', 'A'];
+let ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'k', 'A'];
 
-//let masterDeck, not sure if i will need this yet? 
-let 
-
+var masterDeck = buildMasterDeck();
+renderDeckInContainer(masterDeck, document.getElementById('master-deck-container'));
 /*----- app's state (variables) -----*/ 
-let score, result, winner
-let shuffleDeck
+let score, result, winner;
+let shuffledDeck;
 
 /*----- cached element references -----*/ 
-let score
+const scoreEls = {
+  p1: document.getElementById(p1-score),
+  dr: document.getElementById(dr-score),
+  p2: document.getElementById(p2-score),
+};
 
+const resultEls = {
+  player1: 
+   {
+    gameEls: document.getElementById(p1-result),
+    imgEl: document.querySelector('#p1-result img')
+  },
+  player2:
+   {
+    gameEls: document.getElementById(p2-result),
+    imgEl: document.querySelector('#p2-result img')
+    }
+};
 
-
-let result
-
+var shuffledContainer = document.getElementById('shuffled-deck-container');
 
 /*----- event listeners -----*/ 
 // button , click, 
-document.getElementById("btn").addEventListener('click', function(startblackjack));
-
+document.querySelector("button").addEventListener('click', function(startblackjack));
+document.querySelector("button").addEventListener('click', function(hit));
+document.gquerySelector("button").addEventListener('click', function(stay));
+document.querySelector('button').addEventListener('click', renderShuffledDeck);
 /*----- functions -----*/
 // render, shuffle, new deck, players
 init();
 
-function getDeck() { //creating a deck for 52 card
-    let deck = new Array(); { 
-      for (let i = 0; i < suit.length; i++); { //pulling suit
-        for (let x = 0; x < values.length; x++); //pulling card value
-          let card = {Values: values[x], Suite: suits[i]}; 
-      } // need to add weight to cards?
-    }
-    return deck;
+function pullCards() { //pull two cards from the shuffled 
+
+}
+
+function renderShuffledDeck() {
+  // create a copy of the masterDeck (leave masterDeck untouched!)
+  var tempDeck = masterDeck.slice();
+  shuffledDeck = [];
+  while (tempDeck.length) {
+    var rndIdx = Math.floor(Math.random() * tempDeck.length);
+    shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+  }
+  renderDeckInContainer(shuffledDeck, shuffledContainer);
 }
   
-function shuffle() { //if I have 52 card will this be enought of a shuffle?
-    for (let i = 0; i < 100; i++); { //next need to shuffle the deck, 100 times
-      let loc1 = Math.floor(Math.random() * deck.length); //pull a random card from location 1
-      let loc2 = Math.floor(Math.random() * deck.length); ////pull a random card from location 2 will i need more?
-      let con = deck[loc1]; //con=container which = deck arr
-      deck[loc1] = deck[loc2]; //pull rand location 1 and put it in location 2
-      deck[loc2] = con; // take location 2 and put it back in the container
-    }
+function renderDeckInContainer(deck, container) {
+  container.innerHTML = '';
+  // Let's build the cards as a string of HTML
+  var cardsHtml = deck.reduce(function(html, card) {
+    return html + `<div class="card ${card.face}"></div>`;
+  }, '');
+  container.innerHTML = cardsHtml;
 }
   
-let count = 0; //counting cards
-function countCards(cards) {
-    switch(card){
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-            count ++;
-            break;
-        case 10:
-        case 'J':
-        case 'Q':
-        case 'K':
-        case 'A':
-            count --;
-            Break:;
-    }
-    let holdBet = 'Hold'
-        if(count > 0) {
-            holdbet = 'Bet'
-        }
+function buildMasterDeck() {
+  var deck = [];
+  suits.forEach(function(suit) {
+    ranks.forEach(function(rank) {
+      deck.push({
+        // the 'face' property maps to the CSS classes for cards
+        face: `${suit}${rank}`,
+        // the 'value' property is set for blackjack, not war
+        value: Number(rank) || (rank === 'A' ? 11 : 10)
+      });
+    });
+  });
+  return deck;
+}
+  
+renderShuffledDeck();
+  
+
+function createPlayer1() {
+
 }
 
-function createPlayer1() 
+function crearePlayer2() {
 
-function crearePlayer2()
+}
 
-function startblackjack()
+function startblackjack(){
+// need to call a math.random from shuffled deck
+}
 
-function dealHands()
+function dealHands() {
 
-function stay()
+}
 
-function hit()
+function stay() {
 
-function winner()
+}
 
-function renderDeck() 
+function hit() {
+
+}
+
+function winner() {
+    if (21 === 21 && 21 === 20 && 21 === 19) {
+      return "Winner"
+    } else if (21 === 18) {
+      return "Loser"
+    } else if (21  === 17) {
+      return "Loser"
+    }
+}
+
+function renderDeck() {
+
+}
