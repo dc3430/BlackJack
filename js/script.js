@@ -10,7 +10,6 @@ var shuffledDeck, players, currentPlayer;
 
 
 /*----- cached element references -----*/ 
-// var playerHandhtml = document.getElementById('playerHand') 
 
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
@@ -56,7 +55,7 @@ function buildMasterDeck() {
         value: Number(rank) || (rank === 'A' ? 11 : 10) // the 'value' property is set for blackjack, not war
       });
     });
-  });
+  }); 
   return deck;
 }
 
@@ -64,8 +63,8 @@ function dealCard(numCards) {
   for (i = 0; i < numCards; i++) {
     players[currentPlayer].push(shuffledDeck.pop());
   }
-  displayHand()
-  checkBust(countCards(players[currentPlayer]))
+  displayHand();
+  checkBust(cardCount(players[currentPlayer]))//check per hand if you bust
 };
  
 function displayHand() {
@@ -80,8 +79,9 @@ function displayHand() {
     document.getElementById(currentPlayer).append(cardImg)
     // playerHandhtml.append(cardImg);
   }
-  //document.getElementById(currentPlayer + "-score").innerHTML = "" // need this for when i show score
-  //document.getElementById(currentPlayer + "-score").append(countCards(players[currentPlayer]))
+  document.getElementById(currentPlayer + "-score").innerHTML = ""; //clearing hand
+  document.getElementById(currentPlayer + "-score").append(cardCount(players[currentPlayer]));
+ 
 }
 
 
@@ -93,8 +93,8 @@ function hit() {
 
 function stay() {
   if (currentPlayer != "player1") {
-    // calc final score
-    alert("end game")
+    // add final score
+    console.log("Game Over")
   } else {
     currentPlayer = "player2"
     alert("player two turn");
@@ -109,16 +109,16 @@ function start() {
   document.getElementById("start").hidden = true
 }
 
-// function countCards(hand) {
-//   let totalCount = 0;
-//   for (i = 0; i < hand.length; i++) {
-//    totalCount += hand[i]["value"] 
-//   }
-//   return totalCount
-// }
+function cardCount(hand) {
+  let entireCount = 0
+  for (i = 0; i < hand.length; i++) {
+    entireCount += hand[i]["value"]
+  }
+  return entireCount;
+}
 
-// function checkBust(value) {
-//   if (value > 21) {
-//     alert("BUST, you lose")
-//   }
-// }
+function checkBust(value) {
+  if (value > 21) {
+    alert("BUST, you lose")
+  }
+}
