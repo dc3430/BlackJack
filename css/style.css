@@ -21,7 +21,7 @@ body {
 .gameBoard {
     display: grid;
     grid-template-columns: 40vmin 40vmin;
-    grid-template-rows: 10vmin 10vmin 10vmin 50vmin 10vmin;
+    grid-template-rows: 10vmin 10vmin 10vmin 50vmin 10vmin 10vmin ;
     grid-template-areas: 
         "hdr" "hdr"
         "h3" "h3"
@@ -46,15 +46,21 @@ h3 {
     padding: 1vmin;
     margin: 1vmin;
 }
-img {
-    height: 110px;
-    width: 80px;
-    align-items: center;
-
+h2 {
+    color: white;
+    text-align: center;
 }
 
-#p1-result #p2-result {
-    color: white;
+img {
+    height: 125px;
+    width: 90px;
+    align-items: center;
+    background-color: white;
+    margin: 1vmin;
+}
+
+div#player1 div#player2 {
+    align-items: center;
     padding: 2vmin;
 }
 
@@ -62,13 +68,9 @@ img {
 add radius, backgorundcColor, */
 
 button.btn {
-    size: 20px;
     font-size: 10px;
-    align-items: center;
+    align-items: left;
     color: white;
-    text-align: center;
-    grid-column: span 2;
-    text-align: center;
     color: black;
     grid-column: span 2;
     margin: 1vmin;
