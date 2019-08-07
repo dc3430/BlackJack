@@ -10,6 +10,8 @@ var shuffledDeck, players, currentPlayer;
 
 
 /*----- cached element references -----*/ 
+// var playerHandhtml = document.getElementById('playerHand') 
+
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
 /*----- event listeners -----*/ 
@@ -78,6 +80,43 @@ function displayHand() {
     document.getElementById(currentPlayer).append(cardImg)
     // playerHandhtml.append(cardImg);
   }
-  // document.getElementById(currentPlayer + "-score").innerHTML = "" // need this for when i show score
-  // document.getElementById(currentPlayer + "-score").append(countCards(players[currentPlayer]))
+}
+
+
+// function hit() { //add 1 card from the shuffled deck to the player hand
+//   let onClick = 
+function hit() {
+  dealCard(1)
+} 
+
+function stay() {
+  if (currentPlayer != "player1") {
+    // calc final score
+    alert("end game")
+  } else {
+    currentPlayer = "player2"
+    alert("player two turn");
+  }
+}
+
+function start() {
+  currentPlayer = "player2"
+  dealCard(2)
+  currentPlayer = "player1"
+  dealCard(2)
+  document.getElementById("start").hidden = true
+}
+
+function countCards(hand) {
+  let totalCount = 0;
+  for (i = 0; i < hand.length; i++) {
+   totalCount += hand[i]["value"] 
+  }
+  return totalCount
+}
+
+function checkBust(value) {
+  if (value > 21) {
+    alert("BUST, you lose")
+  }
 }
