@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BlackJack</title>
     <link rel = "stylesheet" href = "css/cardstarter.css">
+    <!-- <link rel = "stylesheet" href = "css/cardstarter.min.css" -->
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -13,18 +14,20 @@
 <body>
     <div class="gameBoard">
         <header>BlackJack</header>
+        
         <h3>Player1</h3>
         
         <h3>Player2</h3>
-        <h1 id="p1-score">1</h1>  
+        <h1 id="player1-score"></h1> 
         
-        <h1 id="p2-score">2</h1>
-        <div id="p1-result"><img src="./images/backs/blue.svg" alt="back"></div>
+        <h1 id="player2-score"></h1>
+        <div id="player1"></div>
         
-        <div id="p2-result"><img src="./images/backs/red.svg" alt="back"></div>
-        <button class="btn" value="start" onclick="start()"></button>
-        <button class="btn" value="Hit" onclick="start()"></button>
-        <button class="btn" value="Stay" onclick="start()"></button>
+        <div id="player2"></div>
+
+        <input type="button" id="start" class="btn" value="start" />
+        <input type="button" id="hit" class="btn" value="Hit" />
+        <input type="button" id="stay" class="btn" value="Stay" />
         <!-- 5 rows 3 columns -->
     </div>
 </body>
