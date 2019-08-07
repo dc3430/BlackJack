@@ -80,6 +80,8 @@ function displayHand() {
     document.getElementById(currentPlayer).append(cardImg)
     // playerHandhtml.append(cardImg);
   }
+  //document.getElementById(currentPlayer + "-score").innerHTML = "" // need this for when i show score
+  //document.getElementById(currentPlayer + "-score").append(countCards(players[currentPlayer]))
 }
 
 
@@ -107,16 +109,16 @@ function start() {
   document.getElementById("start").hidden = true
 }
 
-function countCards(hand) {
-  let totalCount = 0;
-  for (i = 0; i < hand.length; i++) {
-   totalCount += hand[i]["value"] 
-  }
-  return totalCount
-}
+// function countCards(hand) {
+//   let totalCount = 0;
+//   for (i = 0; i < hand.length; i++) {
+//    totalCount += hand[i]["value"] 
+//   }
+//   return totalCount
+// }
 
-function checkBust(value) {
-  if (value > 21) {
-    alert("BUST, you lose")
-  }
-}
+// function checkBust(value) {
+//   if (value > 21) {
+//     alert("BUST, you lose")
+//   }
+// }
