@@ -5,9 +5,14 @@ var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'k'
 var masterDeck; 
 
 /*----- app's state (variables) -----*/ 
-var score, result, winner;
+var score, winner;
 var shuffledDeck, players, currentPlayer; 
 
+// const reset = () => {
+//   score = '',
+//   winner = '',
+//   init()
+// }
 
 /*----- cached element references -----*/ 
 
@@ -19,7 +24,8 @@ var messeage = document.querySelectorAll('msg')
 document.getElementById("hit").addEventListener('click', hit);
 document.getElementById("stay").addEventListener('click', stay);
 document.getElementById('start').addEventListener('click', start);
-//document.getElementById('reset').addEventListener('click', reset);
+// document.getElementById('reset').addEventListener('click', reset);
+
 /*----- functions -----*/
 
 init();
@@ -29,23 +35,18 @@ function init() {
     'player1': [],
     'player2': []
   };
-  // currentPlayer = 'player1'
   masterDeck = buildMasterDeck()
   shuffledDeck = shuffledDeck()
-  // dealCard()
-  // renderHand(playerHand)
 }
 
-function shuffledDeck() { // create a copy of the masterDeck (leave masterDeck untouched!)
+function shuffledDeck() { 
   var tempDeck = masterDeck.slice();
   shuffledDeck = [];
   while (tempDeck.length) {
     var rndIdx = Math.floor(Math.random() * tempDeck.length);
     shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
   } 
-  // console.log(shuffledDeck)
   return shuffledDeck;
-
 }
   
 function buildMasterDeck() {
@@ -53,8 +54,8 @@ function buildMasterDeck() {
   suits.forEach(function(suit) {
     ranks.forEach(function(rank) {
       deck.push({ 
-        face: `${suit}-r${rank}`, // the 'face' property maps to the CSS classes for cards
-        value: Number(rank) || (rank === 'A' ? 11 : 10) // the 'value' property is set for blackjack, not war
+        face: `${suit}-r${rank}`, 
+        value: Number(rank) || (rank === 'A' ? 11 : 10) 
       });
     });
   }); 
@@ -66,12 +67,11 @@ function dealCard(numCards) {
     players[currentPlayer].push(shuffledDeck.pop());
   }
   displayHand();
-  checkBust(cardCount(players[currentPlayer]))//check per hand if you bust
-  //checkVal(cardCount(players[currentPlayer]))//check per hand for winner
+  checkBust(cardCount(players[currentPlayer]))
 };
  
 function displayHand() {
-  document.getElementById(currentPlayer).innerHTML = "" //clearing hand
+  document.getElementById(currentPlayer).innerHTML = "" 
 
   var hand = players[currentPlayer]
   for (var i = 0; i < hand.length; i++ ) {
@@ -80,24 +80,23 @@ function displayHand() {
     var cardImg = document.createElement("img");
     cardImg.src = `./images/${folder}/${file}.svg`
     document.getElementById(currentPlayer).append(cardImg)
-    // playerHandhtml.append(cardImg);
   }
-  document.getElementById(currentPlayer + "-score").innerHTML = ""; //clearing hand
+  document.getElementById(currentPlayer + "-score").innerHTML = ""; 
   document.getElementById(currentPlayer + "-score").append(cardCount(players[currentPlayer]));
- 
 }
 
-
-// function hit() { //add 1 card from the shuffled deck to the player hand
-//   let onClick = 
 function hit() {
   dealCard(1)
+  // if (winner = true) {
+  //   return stay()
+  //  }
 } 
 
 function stay() {
-  if (currentPlayer != "player1") { // add final score
+  if (currentPlayer != "player1") { 
     msg.textContent = `${currentPlayer} Game Over`;
-    console.log()
+    // winner = true;
+    // getWinner(winner);
   } else {
     currentPlayer = "player2"
     msg.textContent = `${currentPlayer} turn`
@@ -122,17 +121,20 @@ function cardCount(hand) {
 
 function checkBust(value) {
   if (value > 21) {
-    msg.textContent = `${currentPlayer} BUSTED, Sorry you lost the game.`
+    msg.textContent = `${currentPlayer} BUSTED, SORRY YOU LOST THE GAME.`
+
   }
 }
 
 
 
-// function checkVal(value) {
-//   if (currentplayer.value > 21) {
-//     return "Busted, Sorry you lose"
-//   } else if (currentPlayer === 21) {
-//   return "Winner"
+// function getWinner(winner) {
+//  if(cardCount(players.player1) > cardCount(players.player2) && winner){
+//   console.log('wow');}
+//  else if(cardCount(players.player1) < cardCount(players.player2) && winner){
+//   console.log('bummmer');}
+//   else {
+//     console.log('tie');
 //   }
-//   console.log(checkBust)
 // }
+
