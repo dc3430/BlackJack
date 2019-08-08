@@ -10,13 +10,16 @@ var shuffledDeck, players, currentPlayer;
 
 
 /*----- cached element references -----*/ 
+
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
+var messeage = document.querySelectorAll('msg')
 /*----- event listeners -----*/ 
  
 document.getElementById("hit").addEventListener('click', hit);
 document.getElementById("stay").addEventListener('click', stay);
 document.getElementById('start').addEventListener('click', start);
+//document.getElementById('reset').addEventListener('click', reset);
 /*----- functions -----*/
 
 init();
@@ -54,7 +57,7 @@ function buildMasterDeck() {
         value: Number(rank) || (rank === 'A' ? 11 : 10) // the 'value' property is set for blackjack, not war
       });
     });
-  });
+  }); 
   return deck;
 }
 
@@ -62,8 +65,9 @@ function dealCard(numCards) {
   for (i = 0; i < numCards; i++) {
     players[currentPlayer].push(shuffledDeck.pop());
   }
-  displayHand()
-  checkBust(countCards(players[currentPlayer]))
+  displayHand();
+  checkBust(cardCount(players[currentPlayer]))//check per hand if you bust
+  //checkVal(cardCount(players[currentPlayer]))//check per hand for winner
 };
  
 function displayHand() {
@@ -78,6 +82,57 @@ function displayHand() {
     document.getElementById(currentPlayer).append(cardImg)
     // playerHandhtml.append(cardImg);
   }
-  // document.getElementById(currentPlayer + "-score").innerHTML = "" // need this for when i show score
-  // document.getElementById(currentPlayer + "-score").append(countCards(players[currentPlayer]))
+  document.getElementById(currentPlayer + "-score").innerHTML = ""; //clearing hand
+  document.getElementById(currentPlayer + "-score").append(cardCount(players[currentPlayer]));
+ 
 }
+
+
+// function hit() { //add 1 card from the shuffled deck to the player hand
+//   let onClick = 
+function hit() {
+  dealCard(1)
+} 
+
+function stay() {
+  if (currentPlayer != "player1") { // add final score
+    msg.textContent = `${currentPlayer} Game Over`;
+    console.log()
+  } else {
+    currentPlayer = "player2"
+    msg.textContent = `${currentPlayer} turn`
+  };
+}
+
+function start() {
+  currentPlayer = "player2"
+  dealCard(2)
+  currentPlayer = "player1"
+  dealCard(2)
+  document.getElementById("start").hidden = true
+}
+
+function cardCount(hand) {
+  let entireCount = 0
+  for (i = 0; i < hand.length; i++) {
+    entireCount += hand[i]["value"]
+  }
+  return entireCount;
+}
+
+function checkBust(value) {
+  if (value > 21) {
+    msg.textContent = `${currentPlayer} BUSTED, Sorry you lost the game.`
+  }
+}
+
+
+
+// function checkVal(value) {
+//   if (currentplayer.value > 21) {
+//     return "Busted, Sorry you lose"
+//   } else if (currentPlayer === 21) {
+//   return "Winner"
+//   }
+//   console.log(checkBust)
+// }
