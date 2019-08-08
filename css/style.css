@@ -12,7 +12,6 @@ body {
     width: auto;
     margin: 0;
     display: flexbox;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: green;/*later change this to an img*/
@@ -21,13 +20,16 @@ body {
 .gameBoard {
     display: grid;
     grid-template-columns: 40vmin 40vmin;
-    grid-template-rows: 10vmin 10vmin 10vmin 50vmin 10vmin 10vmin ;
+    grid-template-rows: 10vmin 10vmin 10vmin 10vmin 50vmin 10vmin ;
     grid-template-areas: 
         "hdr" "hdr"
+        "msg" "msg"
         "h3" "h3"
-        "h1" "h1"
-        "btn" "btn" "btn"
+        "h2" "h2"
         "div" "div"
+        "clk" "clk" 
+        
+        
         
 
 }
@@ -40,8 +42,17 @@ header {
     grid-column: span 2;
     margin: 1vmin;
 }
+#msg {
+    font-size:30px;
+    text-transform: capitalize;
+    text-align: center;
+    color: aqua;
+    grid-column: span 2;
+    margin: 1vmin;
+}
+
 h3 {
-    color: white;
+    color: yellow;
     text-align: center;
     padding: 1vmin;
     margin: 1vmin;
@@ -50,7 +61,6 @@ h2 {
     color: white;
     text-align: center;
 }
-
 img {
     height: 125px;
     width: 90px;
@@ -60,19 +70,13 @@ img {
 }
 
 div#player1 div#player2 {
-    align-items: center;
     padding: 2vmin;
 }
 
-/* style the button 
-add radius, backgorundcColor, */
-
-button.btn {
-    font-size: 10px;
-    align-items: left;
-    color: white;
-    color: black;
+/* style the button */
+#cl {
     grid-column: span 2;
-    margin: 1vmin;
 }
+
+
 
