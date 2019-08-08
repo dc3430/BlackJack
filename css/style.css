@@ -1,23 +1,17 @@
-/* remember to use "display flex" for the grid layout 
-go to class resources to pull the card images
-set up basic css,  */
 
 * {
     font-family: 'Playfair Display', serif;
     box-sizing: border-box;
 }
-/* the page */
 body {
     height: auto;
     width: auto;
     margin: 0;
-    /* display: flexbox; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: green;/*later change this to an img*/
+    background-color: green;
 }
-/* the grid layout for the board*/
 .gameBoard {
     display: grid;
     grid-template-columns: 40vmin 40vmin;
@@ -26,12 +20,9 @@ body {
         "hdr" "hdr"
         "msg" "msg"
         "h3" "h3"
-        "h1" "h1"
-        "btn" "btn" "btn"
         "div" "div"
-        
+        "clk" "clk"
 }
-/* just header */
 header {
     background-color:black;
     font-size:30px;
@@ -40,42 +31,43 @@ header {
     grid-column: span 2;
     margin: 1vmin;
 }
-msg {
+#msg {
+    font-size:30px;
+    text-transform: capitalize;
+    text-align: center;
+    color: aqua;
     grid-column: span 2;
-    color: white;
+    margin: 1vmin;
 }
-h3 {
-    color: white;
+h2 {
+    color: rgba(238, 238, 25, 0.705);
     text-align: center;
     padding: 1vmin;
     margin: 1vmin;
 }
+div#player1-score {
+    font-size: 30px;
+    color: rgba(23, 23, 235, 0.747);
+    text-align: center;
+    margin: 2px;
+}
+div#player2-score {
+    font-size: 30px;
+    color: rgb(148, 5, 5);
+    text-align: center;
+    margin: 2px;
+}
 img {
     height: 110px;
     width: 80px;
-    background-color: aliceblue;
+    background-color: rgb(238, 232, 232);
     align-items: center;
-
 }
-
-#p1-result #p2-result {
+#player1 #player2 {
     color: white;
     padding: 2vmin;
 }
-
-/* style the button 
-add radius, backgorundcColor, */
-
-button.btn {
-    size: 20px;
-    font-size: 10px;
-    align-items: center;
-    color: white;
-    text-align: center;
-    grid-column: span 2;
-    text-align: center;
-    color: black;
-    grid-column: span 2;
-    margin: 1vmin;
+#clk {
+    /* span */
 }
 
