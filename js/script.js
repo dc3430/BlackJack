@@ -13,19 +13,21 @@ var shuffledDeck, players, currentPlayer;
 
 var shuffledContainer = document.getElementById('shuffled-deck-container');
 
+var messeage = document.querySelectorAll('msg')
 /*----- event listeners -----*/ 
  
 document.getElementById("hit").addEventListener('click', hit);
 document.getElementById("stay").addEventListener('click', stay);
 document.getElementById('start').addEventListener('click', start);
+//document.getElementById('reset').addEventListener('click', reset);
 /*----- functions -----*/
 
 init();
 
 function init() {
   players = {
-    'player1': [],
-    'player2': []
+    'player 1': [],
+    'player 2': []
   };
   // currentPlayer = 'player1'
   masterDeck = buildMasterDeck()
@@ -65,6 +67,7 @@ function dealCard(numCards) {
   }
   displayHand();
   checkBust(cardCount(players[currentPlayer]))//check per hand if you bust
+  //checkVal(cardCount(players[currentPlayer]))//check per hand for winner
 };
  
 function displayHand() {
@@ -92,19 +95,19 @@ function hit() {
 } 
 
 function stay() {
-  if (currentPlayer != "player1") {
-    // add final score
-    console.log("Game Over")
+  if (currentPlayer != "player 1") { // add final score
+    msg.textContent = `${currentPlayer} Game Over`;
+    console.log()
   } else {
-    currentPlayer = "player2"
-    alert("player two turn");
-  }
+    currentPlayer = "player 2"
+    msg.textContent = `${currentPlayer} turn`
+  };
 }
 
 function start() {
-  currentPlayer = "player2"
+  currentPlayer = "player 2"
   dealCard(2)
-  currentPlayer = "player1"
+  currentPlayer = "player 1"
   dealCard(2)
   document.getElementById("start").hidden = true
 }
@@ -119,6 +122,17 @@ function cardCount(hand) {
 
 function checkBust(value) {
   if (value > 21) {
-    alert("BUST, you lose")
+    msg.textContent = `${currentPlayer} BUSTED, Sorry you lost the game.`
   }
 }
+
+
+
+// function checkVal(value) {
+//   if (currentplayer.value > 21) {
+//     return "Busted, Sorry you lose"
+//   } else if (currentPlayer === 21) {
+//   return "Winner"
+//   }
+//   console.log(checkBust)
+// }
