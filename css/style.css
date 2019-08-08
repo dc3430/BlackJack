@@ -11,7 +11,7 @@ body {
     height: auto;
     width: auto;
     margin: 0;
-    display: flexbox;
+    /* display: flexbox; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -21,15 +21,15 @@ body {
 .gameBoard {
     display: grid;
     grid-template-columns: 40vmin 40vmin;
-    grid-template-rows: 10vmin 10vmin 10vmin 50vmin 10vmin;
+    grid-template-rows: 10vmin 10vmin 10vmin 10vmin 50vmin 10vmin;
     grid-template-areas: 
         "hdr" "hdr"
+        "msg" "msg"
         "h3" "h3"
         "h1" "h1"
         "btn" "btn" "btn"
         "div" "div"
         
-
 }
 /* just header */
 header {
@@ -40,6 +40,10 @@ header {
     grid-column: span 2;
     margin: 1vmin;
 }
+msg {
+    grid-column: span 2;
+    color: white;
+}
 h3 {
     color: white;
     text-align: center;
@@ -49,6 +53,7 @@ h3 {
 img {
     height: 110px;
     width: 80px;
+    background-color: aliceblue;
     align-items: center;
 
 }
