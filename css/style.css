@@ -49,11 +49,12 @@ div#player1-score {
     font-size: 30px;
     color: rgba(23, 23, 235, 0.747);
     text-align: center;
+    padding: 1px;
     margin: 2px;
 }
 div#player2-score {
     font-size: 30px;
-    color: rgb(148, 5, 5);
+    color: rgba(148, 5, 5, 0.781);
     text-align: center;
     margin: 2px;
 }
@@ -62,6 +63,7 @@ img {
     width: 80px;
     background-color: rgb(238, 232, 232);
     align-items: center;
+    margin: 2px;
 }
 #player1 #player2 {
     color: white;
