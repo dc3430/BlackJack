@@ -26,8 +26,8 @@ init();
 
 function init() {
   players = {
-    'player 1': [],
-    'player 2': []
+    'player1': [],
+    'player2': []
   };
   // currentPlayer = 'player1'
   masterDeck = buildMasterDeck()
@@ -95,19 +95,19 @@ function hit() {
 } 
 
 function stay() {
-  if (currentPlayer != "player 1") { // add final score
+  if (currentPlayer != "player1") { // add final score
     msg.textContent = `${currentPlayer} Game Over`;
     console.log()
   } else {
-    currentPlayer = "player 2"
+    currentPlayer = "player2"
     msg.textContent = `${currentPlayer} turn`
   };
 }
 
 function start() {
-  currentPlayer = "player 2"
+  currentPlayer = "player2"
   dealCard(2)
-  currentPlayer = "player 1"
+  currentPlayer = "player1"
   dealCard(2)
   document.getElementById("start").hidden = true
 }
