@@ -10,7 +10,7 @@ This is one of my favorite game when going to a casino.
 Plus, it's a very easy game to learn. 
 I hope that this fun, but easy game become one of your favorite games to play.
 
-#HOW TOP PLAY
+# HOW TOP PLAY
 In my game of BlackJack, you are up against another player. This can be a friend or if you feel like you need the practice you can play alone.
 First, we start out playing the game by clicking on the start button.
 Both players are dealt two cards from the moment you hit start.
@@ -24,7 +24,7 @@ You can draw as many cards as needed to not exceed twenty-one in order to beat t
 If you think the value of your cards is high enough to beat your opponents you don't have to draw any card you can just click the stay button.
 Other wise you should click the hit but to try to reach the score of 21 or have the highest value of card on the table.
 
-#WINNER
+# WINNER
 When a hand of BlackJack is played out between the players, there are three out comes. first you can win players can win from the start of the game with a hand of an ace and a face card.
  Secondly you can lose by bust, players also can lose from the being of the game if the are dealt two aces.
 Thirdly players can tie which is also called a push where the value add to be the same.
@@ -38,5 +38,5 @@ The other player still can bust or come in under you value of cards.
 I hope my version of BlackJack become one of your favorites games to play. 
 The goal is to have a great time trying using your skills and a little luck. Enjoy playing BlackJack.
 
-#NEXT STEPS 
+# NEXT STEPS 
 I would build the game to render so updating the winner and loser would be easier. Add drop downs to tell you how to Play the game. Add a way to bet before you take a turn at black jack.
