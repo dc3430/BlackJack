@@ -5,26 +5,29 @@ var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'k'
 var masterDeck; 
 
 /*----- app's state (variables) -----*/ 
-var score, winner;
+var score, winner, bust;
 var shuffledDeck, players, currentPlayer; 
 
-// const reset = () => {
-//   score = '',
-//   winner = '',
-//   init()
-// }
+const reset = () => {
+  score = '',
+  winner = '',
+  init()
+}
 
 /*----- cached element references -----*/ 
 
 var shuffledContainer = document.getElementById('shuffled-deck-container');
-
+var p1El = document.querySelector('#player1')
+var p2El = document.querySelector('#player2')
 var messeage = document.querySelectorAll('msg')
 /*----- event listeners -----*/ 
  
 document.getElementById("hit").addEventListener('click', hit);
 document.getElementById("stay").addEventListener('click', stay);
 document.getElementById('start').addEventListener('click', start);
-// document.getElementById('reset').addEventListener('click', reset);
+document.getElementById('reset').addEventListener('click', () => {
+  window.location.reload();
+});
 
 /*----- functions -----*/
 
@@ -36,12 +39,14 @@ function init() {
     'player2': []
   };
   masterDeck = buildMasterDeck()
-  shuffledDeck = shuffledDeck()
+  shuffledDeck = []
+  handleShuffleDeck();
+  winner = null
+  bust = false;
 }
 
-function shuffledDeck() { 
+function handleShuffleDeck() { 
   var tempDeck = masterDeck.slice();
-  shuffledDeck = [];
   while (tempDeck.length) {
     var rndIdx = Math.floor(Math.random() * tempDeck.length);
     shuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
@@ -63,11 +68,13 @@ function buildMasterDeck() {
 }
 
 function dealCard(numCards) {
+  if(winner || bust) return;
   for (i = 0; i < numCards; i++) {
     players[currentPlayer].push(shuffledDeck.pop());
   }
-  displayHand();
   checkBust(cardCount(players[currentPlayer]))
+  checkWinner();
+  displayHand();
 };
  
 function displayHand() {
@@ -86,17 +93,14 @@ function displayHand() {
 }
 
 function hit() {
+  if(winner || bust) return;
+  checkWinner();
   dealCard(1)
-  // if (winner = true) {
-  //   return stay()
-  //  }
 } 
 
 function stay() {
   if (currentPlayer != "player1") { 
     msg.textContent = `${currentPlayer} Game Over`;
-    // winner = true;
-    // getWinner(winner);
   } else {
     currentPlayer = "player2"
     msg.textContent = `${currentPlayer} turn`
@@ -121,20 +125,24 @@ function cardCount(hand) {
 
 function checkBust(value) {
   if (value > 21) {
+    bust = true;
     msg.textContent = `${currentPlayer} BUSTED, SORRY YOU LOST THE GAME.`
 
   }
 }
 
+let playerOneVal, playerTwoVal;
 
-
-// function getWinner(winner) {
-//  if(cardCount(players.player1) > cardCount(players.player2) && winner){
-//   console.log('wow');}
-//  else if(cardCount(players.player1) < cardCount(players.player2) && winner){
-//   console.log('bummmer');}
-//   else {
-//     console.log('tie');
-//   }
-// }
-
+function checkWinner() {
+  playerOneVal = players["player1"].reduce((acc, val) => {return acc + val.value}, 0);
+  playerTwoVal = players["player2"].reduce((acc, val) => {return acc + val.value}, 0);
+  if(playerOneVal === 21) {
+    winner = "p1"
+    msg.textContent = "Player One Wins"
+  } else if (playerTwoVal === 21 ){
+    winner = "p2"
+    msg.textContent = "Player Two Wins"
+  } else {
+    return null
+  }
+}
