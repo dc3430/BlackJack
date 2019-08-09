@@ -2,7 +2,7 @@
 
 ![img](https://i.imgur.com/qSWTo3H.jpg)
 
-![Game](https://i.imgur.com/qSWTo3H.jpg)
+https://i.imgur.com/qSWTo3H.jpg
 
 # SETUP
 Welcome, BlackJack it's also known as twenty-one. 
