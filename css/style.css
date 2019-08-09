@@ -40,7 +40,7 @@ header {
     margin: 1vmin;
 }
 h2 {
-    color: rgba(238, 238, 25, 0.705);
+    color: rgba(243, 243, 9, 0.911);
     text-align: center;
     padding: 1vmin;
     margin: 1vmin;
@@ -70,4 +70,8 @@ img {
     padding: 2vmin;
 }
 
-
+#reset {
+    border-radius: 10%;
+    padding: 5vmin;
+    margin: 5vmin;
+}
